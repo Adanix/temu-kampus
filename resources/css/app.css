@@ -1,0 +1,92 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* Core Civic Utility Surfaces & Inks */
+    --color-canvas: #F7F6F2;
+    --color-surface: #FFFFFF;
+    --color-surface-subtle: #EFEDE7;
+    --color-border-subtle: #E5E2DC;
+    --color-border-strong: #C9C4BA;
+
+    --color-ink-primary: #18181B;
+    --color-ink-secondary: #52525B;
+    --color-ink-muted: #6B6862;
+
+    /* Brand & Signal */
+    --color-brand: #14533C;
+    --color-brand-hover: #0F3F2D;
+    --color-brand-tint: #E8F3EE;
+    --color-signal: #C84B24;
+    --color-danger: #B91C1C;
+    --color-danger-hover: #991B1B;
+
+    /* Semantic Status Tokens (WCAG AA Verified) */
+    --color-status-lost-bg: #FDF1ED;
+    --color-status-lost-border: #F5C9BA;
+    --color-status-lost-text: #A63614;
+
+    --color-status-found-bg: #EBF7F1;
+    --color-status-found-border: #B7E2CC;
+    --color-status-found-text: #13533A;
+
+    --color-status-pending-bg: #FEF7E6;
+    --color-status-pending-border: #F3D999;
+    --color-status-pending-text: #8A5A00;
+
+    --color-status-approved-bg: #ECF3FE;
+    --color-status-approved-border: #BFD6FA;
+    --color-status-approved-text: #1D4ED8;
+
+    --color-status-neutral-bg: #F1F0EC;
+    --color-status-neutral-border: #D6D3CB;
+    --color-status-neutral-text: #44403C;
+
+    --color-status-danger-bg: #FEF2F2;
+    --color-status-danger-border: #FECACA;
+    --color-status-danger-text: #B91C1C;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        background-color: var(--color-canvas);
+        color: var(--color-ink-primary);
+    }
+
+    body {
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: clip;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    body {
+        background: #FFFFFF !important;
+        color: #18181B !important;
+    }
+}
